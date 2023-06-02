@@ -1,0 +1,26 @@
+function insert(value) {
+  document.getElementById('display').value += value;
+}
+
+function clearDisplay() {
+  document.getElementById('display').value = '';
+}
+
+function backspace() {
+  var display = document.getElementById('display');
+  display.value = display.value.slice(0, -1);
+}
+
+function calculateResult() {
+  var display = document.getElementById('display');
+  try {
+    var result = eval(display.value);
+    if (isNaN(result)) {
+      display.value = 'Error';
+    } else {
+      display.value = result;
+    }
+  } catch (error) {
+    display.value = 'Error';
+  }
+}
